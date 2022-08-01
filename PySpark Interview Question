@@ -1,0 +1,38 @@
+Day 3- Spark Interview Coding Questions Series, daily 2 questions with datasets
+
+I request you to participate in this series and comment down your answers below in the comment section. Before end of Day, I will post the solution as well in the comment section. So you have enough time till EOD to comment your ans.
+
+Hope you will find this series interesting!!!
+
+Question 1:- Consider we have two files- File 1 and File 2 with different schema, how will you merge both the file into single dataframe as shown:
+File1:-
+Roll_No|Subject|Marks
+1001|English|84
+1001|Pysics|55
+1001|Maths|45
+1001|Science|35
+1001|History|32
+1002|English|84
+1002|Pysics|67
+1002|Maths|90
+1002|Science|89
+1002|History|32
+
+File2:
+Reacharde_Id,Recaharge_Date,Reamaining_Days,validiy
+123,20200511,2,online
+124,20200612,67,online
+125,20200713,89,online
+126,20200814,78,online
+127,20200916,20,online
+
+Question 2:- From the given csv file, calculate expiry date as shown in output Dataframe by adding rechargedate column with remaining days column.
+File:
+Reacharde_Id,Recaharge_Date,Reamaining_Days,validiy
+123,20200511,2,online
+124,20200612,67,online
+125,20200713,89,online
+126,20200814,78,online
+127,20200916,20,online
+
+Stay tuned for more post regarding Big Data & SQL.
