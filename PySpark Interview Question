@@ -36,3 +36,25 @@ Reacharde_Id,Recaharge_Date,Reamaining_Days,validiy
 127,20200916,20,online
 
 Stay tuned for more post regarding Big Data & SQL.
+
+SPARK
+-----
+Department wise second highest salary using Spark Dataframes:
+=========================================
+Table: Department
+columns: dept_is,dept_name,salary
+val MyWindow = Window
+.partitionBy("dept_id")
+.orderBy("salary" desc)
+val df2=df.withColumn("rownum", dense_rank() over MyWindow )
+.filter("rownum=2")
+df2.show();
+
+File Format In Spark An Article from Linkedin
+Parquet file format offers best compatibility with Apache Spark engine.
+
+✅ Like ORC, parquet is a self-describing (schema embedded as part of data itself) columnar file format offering good 'read' performance and compression but the difference is that parquet can store deeply-nested data and queries on this nested data are made efficient by reading nested fields directly skipping all other fields in nested structure. Also ORC is optimized for Hive.
+✅ Avro is a row-based file format which is good fit for storing data in landing zone of data lake and also offers best support for schema evolution.
+✅ CSV format takes up huge storage space and there is type conversion overhead since everything is stored as string internally.
+✅ JSON is similar to CSV in terms of performance and storage with the added disadvantage of not being splittable. If a file cannot be split, then it can't be a good fit for big data operations because it cannot leverage distributed storage and parallelism.
+
