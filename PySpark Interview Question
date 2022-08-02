@@ -1,4 +1,4 @@
-Day 3- Spark Interview Coding Questions Series, daily 2 questions with datasets
+Spark Interview Coding Questions Series
 
 I request you to participate in this series and comment down your answers below in the comment section. Before end of Day, I will post the solution as well in the comment section. So you have enough time till EOD to comment your ans.
 
@@ -58,3 +58,21 @@ Parquet file format offers best compatibility with Apache Spark engine.
 ✅ CSV format takes up huge storage space and there is type conversion overhead since everything is stored as string internally.
 ✅ JSON is similar to CSV in terms of performance and storage with the added disadvantage of not being splittable. If a file cannot be split, then it can't be a good fit for big data operations because it cannot leverage distributed storage and parallelism.
 
+Q: What is differance in spark partitionBy() and bucketBy()?
+Some pointers for your thought.
+partitionBy() creates directories per column value.
+bucketBy() creates files per bucket per RDD partition.
+
+If you partitionBy("col1"), you will see one directory for each unique value of col1.
+If you bucketBy(3, "col1"), you will see 3 x N bucket files. The N is your dataframe RDD partitions.
+If you select * from part_tbl where col1='XYZ', the partition pruning will take place.
+If you select * from bkt_tbl where col1='XYZ', the bucket pruning will not happen.
+So bucketBy() in Spark is not a solution for optimized record filtering.
+Then why do we have bucketBy() in Spark?
+They are an excellent tool to eliminate exchange and avoid shuffling for the group by and join queries.
+There are a few more associated concepts, such as full shuffle, partial shuffle, bucket skew, small file problems, etc.
+Efficient use of buckets in Spark takes a lot of in-depth understanding, or you have many pitfalls and traps.
+But when used correctly, it can boost your joins and aggregations beyond imagination.
+Add your thoughts in the comment.
+
+PS: I teach mastering Spark and Databricks Cloud. Next batch starting 14th August. For course inquiries, fill out the form (Link in comments)
