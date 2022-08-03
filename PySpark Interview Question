@@ -63,6 +63,32 @@ Some pointers for your thought.
 partitionBy() creates directories per column value.
 bucketBy() creates files per bucket per RDD partition.
 
+# here is the traditional way to define a shema in PySpark
+import pyspark.sql.types as T
+
+schema =
+T.StructType([
+T.StructField("col1",
+T.StructField("col2",
+T.StructField("col3",
+])
+schema
+# output
+StructType(List(StructField(col1,StringType,true),StructField(co12, IntegerType,
+true), StructField(col3, TimestampType, true)))
+# and here is the way using the helper function out of types
+ddl_schema_string "coll string, col2 integer, col3 timestamp"
+T._parse_datatype_string(ddl_schema_string)
+ddl_schema
+ddl_schema
+T.StringType(), True),
+T.IntegerType(), True),
+T.TimestampType(), True)
+# output
+=
+StructType(List(StructField(coll,StringType,true),StructField(col2, IntegerType,
+true),StructField(col3,TimestampType,true)))
+
 If you partitionBy("col1"), you will see one directory for each unique value of col1.
 If you bucketBy(3, "col1"), you will see 3 x N bucket files. The N is your dataframe RDD partitions.
 If you select * from part_tbl where col1='XYZ', the partition pruning will take place.
