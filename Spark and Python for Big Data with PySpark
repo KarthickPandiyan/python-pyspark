@@ -80,6 +80,10 @@ Now let do the same step from jupyter notebook
             ModuleNotFoundError: No module named 'pyspark'
           4. type "import findspark" library
           5. type the commond findspark.init(''/home/karthick/spark-3.3.0-bin-hadoop3')
+          
+ Jose portilla - Python crash course
+ Resource - https://docs.google.com/presentation/d/1CuqvSGMqdMTT1dTblX5enEqZNLS8d0fHwZImQ3zzbpQ/edit?usp=sharing
+ 
 
 
 
