@@ -16,6 +16,74 @@ Local Installation VirtualBox Part
   www.ubuntu.com/downloads/desktop  
   Ubuntu 22
   
+  History got from terminal used these commands to install python and pyspark
+          python3
+            6  pip3 install jupyter
+            7  sudo apt install python3-pip
+            8  pip3 install jupyter
+            9  juypter notebook
+           10  jupyter notebook
+           11  sudo apt install jupyter
+           12  python
+           13  jupyter notebook
+           14  sudo apt-get update
+           15  sudo apt-get install default jre
+           16  sudo apt-get install default-jre
+           17  java -version
+           18  sudo apt-get install scala
+           19  scala -version
+           20  pip install py4j
+           21  sudo tar -zxvf spark-3.3.0-bin-hadoop3.tgz
+           22  export SPARK_HOME='home/ubuntu/spark-3.3.0-bin-hadoop3'
+           23  export PATH=$SPARK_HOME:$PATH
+           24  export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH
+           25  export PYSPARK_DRIVER_PYTHON="jupyter"
+           26  export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
+           27  export PYSPARK_PYTHON=python3
+           28  chmod 777 spark-3.3.0-bin-hadoop3
+           29  sudo chmod 777 spark-3.3.0-bin-hadoop3
+           30  cd spark-3.3.0-bin-hadoop3/
+           31  python
+           32  cd python
+           33  cd python3
+           34  python
+           35  python3
+           36  jupyter notebook
+           
+Use findspark library to establish the spark connection instead of going to the directory
+           37 pip3 install findspark
+           karthick@karthick-VirtualBox:~$ cd spark-3.3.0-bin-hadoop3/
+            karthick@karthick-VirtualBox:~/spark-3.3.0-bin-hadoop3$ pwd
+            /home/karthick/spark-3.3.0-bin-hadoop3
+            karthick@karthick-VirtualBox:~/spark-3.3.0-bin-hadoop3$ cd 
+            karthick@karthick-VirtualBox:~$ python3
+            Python 3.10.4 (main, Jun 29 2022, 12:14:53) [GCC 11.2.0] on linux
+            Type "help", "copyright", "credits" or "license" for more information.
+            >>> import findspark
+            >>> findspark.init('/home/karthick/spark-3.3.0-bin-hadoop3
+              File "<stdin>", line 1
+                findspark.init('/home/karthick/spark-3.3.0-bin-hadoop3
+                               ^
+            SyntaxError: unterminated string literal (detected at line 1)
+            >>> findspark.init('/home/karthick/spark-3.3.0-bin-hadoop3')
+            >>> import pyspark
+            >>> quit()
+
+Now let do the same step from jupyter notebook 
+          1. jupyter notebook - from home directory
+          2. paste the link for from terminal to browser
+          3. type import pyspark
+            ---------------------------------------------------------------------------
+            ModuleNotFoundError                       Traceback (most recent call last)
+            Input In [1], in <cell line: 1>()
+            ----> 1 import pyspark
+            ModuleNotFoundError: No module named 'pyspark'
+          4. type "import findspark" library
+          5. type the commond findspark.init(''/home/karthick/spark-3.3.0-bin-hadoop3')
+
+
+
+
   
   
   
