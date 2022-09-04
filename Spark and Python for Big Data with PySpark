@@ -88,6 +88,495 @@ Now let do the same step from jupyter notebook
  https://docs.google.com/presentation/d/1kItYFXxc5Zx-LG-3yizJweZMKev-joLfHLz9rGN7xAE/edit?usp=sharing
  
 
+Jupyter Insights - Jupyter notebook uses .ipynb file format it can be saved a .py file it can be opened with any ide
+we cannot double click the .ipynb file it can done via terminal
+open juypter notebook in terminal
+Then navigate to your notebook
+use cd to navigate to terminal before hand
+
+if you are running it locally it will say localhost:8888
+if it is AMazon EC2:AAA 
+Jupyter notebook can open the mp4 as well
+
+to see the method in jupyter notebook "." and click "tab"
+
+Launch Jupyter Notebook
+-----------------------
+	As per Jose Portilla
+	How to launch jupyter notebook?
+		cd spark-3.3.0-bin-hadoop3
+		ls
+	and type 
+		cd Python3
+		import pyspark 
+	will work here but we are doing a work around that you dont have to get into python directory everytime
+		Quit the python3
+	enter pip3 install findspark - used to do the connection for us
+		ls
+	which shows spark
+		cd spark-3.3.0-bin-hadoop3
+		pwd
+	it will give the current directory
+	go to home directory
+		python3
+		import findspark
+		findspark.init('spark file path')
+		import pyspark it will work even though we are not at working directory
+		
+		start jupyter notebook
+		copy the link and paste it in browser
+		import findspark
+		findspark.init('spark file path')
+		import pyspark it will work
+
+Python has two main number type
+int and float
+to see what type of object use type()
+4%2 = returns the reminder
+Order operation in python
+	(2+3) * (5+5) bracket taken first
+variable assignment
+	python prefer snake case name_of_var = 3
+
+Strings 
+	single quote or double quote
+	we can mix up the double vs single
+	
+	if we give print("hello")
+	display the string - hello
+	
+	"hello"
+	output cell - 'hello' display the string 
+
+format print
+	"My name is {}, my number is {}".format('jose', '13'))
+	label the variable
+	eg: print("First: {x} second: {y}".format('XXX', 'YYY'))
+	it will thrown and exception
+	print("First: {x} second: {y}".format(x='XXX', y='YYY'))	
+	
+List
+	1. also known as array in other language
+	2. use with [1,2,3] or ['A','B','V'] or [1,'a'] it works withany issue
+	3. if we want to call object from the list mylist = ['a','b','c'], insight to know if a varible is highlighted then it is a reserved keyword
+	   we take the object using indexing 
+	   starts from 0,1,2
+	   if list is long want to take last letter python support negative indexing [-1] reads from reverse
+	4. we can change the value in list by specifying the index position 
+		eg: mylist[0] ='New'
+			mylist 
+	5. To add value to list use .append()
+		eg:mylist.append('d')
+			mylist 
+	6. To nest list 
+		eg:mylist[100,200,[300,400]]- be sure about this nest list 
+			to get item from nested list indexing position be like mylist[0(100),1(200),(2[0(300),1(400)]))    
+			we can access by mylist[2][1] returns values from 2nd nested list 100
+			this helps if we are working with matrix 2 dimensional
+			
+Dict 
+	1. also know as Hash Table in other lang
+	syntax: d= {'Key' :'Value', 'Key':'Value'}
+	2.  it will not be in order like dictonary 
+	3. to access d['Key']
+	
+Boolean 
+	1. Retrun True or False
+	2. O - False 1 - True which can be used as if condition
+	
+Tuple 	
+	1. like a list but tuple are immutable
+	2. syntax:	t=(1,2,3)
+	3. make sure items cannot be changed
+	
+Sets	
+	1. like dictonary
+	2. unordered collection of unique elements
+	3. it there are same elements in sets it will reduce the elements
+		eg:{1,1,2,2} it returns {1,2}
+
+Comparision operation
+	>, >=, <=, ==(quality), 'a' =='a', 1!=2, 
+
+Logic operation
+	(1==1) and ('a'='a') paranthesis are optional to check 2 conditions other languages &&
+	(1==1) or ('a'='a') ||
+	
+if elif and else
+	if 1==1:
+		print()
+	elif:3==3:
+		print()	
+	else:
+		print()
+
+seq = [1,2,3]
+	for item in seq:
+		print(item) or print(item+item)
+		
+while
+	i=1
+	while(i<1):
+		print("i"{}.format(i))
+		i = i+1		
+
+Range 
+	to create list of integers
+	range(5) it gives us range(0,5) generator
+	cast it to list - list(range(5))  - it prints the list of integers [0,1,2,3,4]
+		
+	range(start, stop, step)
+	commonly used in for loop
+	
+List comprehension 
+	useful to build a list
+	x=[1,2,3,4]
+	out=[]
+	for num in x:
+		out.append(num**2)
+		
+	print(out)
+	
+	Convert the for loop as list comprehension
+	[num**2 for num in x] 	- this other of writing for loop by flatening it out as list comprehension and it retruns result in LIST
+	
+	if find appending operation then use the list comprehension to flatten the loop, faster, performance booster
+
+Function and special methods used on python objects
+	to create custom function use 
+	syntax: def function_name():
+		print("hello")
+		function_name if we call like this then it will retrun <function _main_.function_name>
+		function_name()
+
+		to add parameter to function
+		def function_name(name):
+			print("hello", +name)
+			
+		function_name(Karthick) -> it concadinates the parameter with provided in print statment
+	
+		to add default parameter to a function
+		def function_name(name='No_Name'):
+			print("hello", +name)
+			
+		function_name() -> it concadinates the parameter with provided in print statment
+		
+		if we want to have Documention string in a function it can be done using
+		def function_name(name='No_Name'):
+			print("hello", +name)
+		'''
+		This prints out the user name!
+		
+		'''
+		function_name()
+		whenever we give Shift+Tab the displays the document about the function
+		
+		
+		To save value to a variable using function
+		def square(x):
+			return x**2
+			print(square(2))
+		result = square(2) -> it prints 4 -> type(result) is int -> return statement will retrun the value as out in jupyter
+		if we print it doesnt store to an variable it just printed the value it doesnt return 
+
+Lambda Expression
+	Quick type anonymous function, write the function and it can be called one time as no name assigned to it
+	
+	syntax: lambda input: output*2 -> 
+		
+		instead of writing it in traditional function 
+		
+	regular	def times_two(var):
+			retrun var*10
+			
+		times_two(20) = 200 
+		 
+Methods on Strings
+	String = 'hello'
+	.lower()
+	.upper()
+	.split() - splits the string based on white space and return it as list of string
+		tweet ="hello $Thomson"
+		tweet.split()
+			['hello', '$Thomson']
+		we can do that with symbols as well or if symbols at the end of string we do it as mentioned below
+		tweet.split('~')[-1]
+
+		
+How to retain value from dictionaries	
+	syntax: dict = {'Key1': 'Value1', 'Key2', 'Value2')
+	dict.keys() - will return all keys
+	dict.items() - will return all items
+		it has no orders
+		
+Pop something inside the list or find 
+	mylist = [1,2,3]
+	last_value = mylist.pop()
+	remove based on index - first = mylist.pop(0)
+	check item inside list x in [1,2,3] false or 1 in [1,2,3] true	
+	
+	
+	
+Spark Dataframe - Pandas Excel R Spark 2.0 higher
+-------------------------------------------------
+	Hold data in column and row
+	column variable and feature 
+	row hold data
+
+Spark early -> had only RDD -> difficult to learn -> spark 2.0 with load of Api
+
+To work with spark dataframe 
+	we have to start sparksession
+	from pyspark.sql import SparkSession
+	spark = SparkSession.builder.appname('Basics').getOrCreate()
+	
+read json file
+	df = spark.read.json('file.json') - recomended to have to file in jupyter notebook path else start jupyter from where file exist
+					else you have to provide the file path that shouldnt be having space
+
+to show the df
+	df.show()
+	
+to know the schema
+	df.printSchema()
+	root - > column -> datatype -> nullable ==true
+
+to have only columns
+	df.columns
+	it retruns python list as column names, you dont have to provide parenthisis
+
+Describe df It provides statistical summary of numeric column in the dataframe
+	df.describe().show()
+
+To Create custom schema where the data and its data type is not that great
+
+	from pyspark.sql.types import(StructField, StringType, IntegerType, StructType) # if the data is getting long line better have paranthesis
+	data_schema = [StructField('Age', IntegerType(), True)] we can create list of struct feild [] the pass column name, datatype, 
+								boolean to   	 decide where field can be null
+	data_schema = [StructField('Name', StringType(), True)]
+	
+	final_struc = StructType(fields = data_schema)
+
+	to apply the above created schema for the reading dataset
+	
+	df = spark.read.json('filename', schema = final_struc)
+	df.show()
+	
+Select vs Grab a data
+	
+	df('age') -> 
+	type(df('age'))- > pyspark.sql.column.column -> get column object -> Returns column 
+	
+	to get dataframe
+	df.select('age').show() -> we can see a dataframe -> return dataframe single column
+	type(df.select('age')) - > returns the dataframe
+	
+	to check row object
+	df.head(2) - grabs top 2 rows - produce list of row objects
+		Row(age=none, name='michela')
+	type(df.head(2)[0]) - returns pspark.sql.types.row
+	
+	To select multiple columns
+	df.select(['age','name']).show()
+	
+	To add new column
+	df.withColumn('Name of New column', df['age']*2).show()
+	it returns new df, adding a column or replacing existing
+	
+	To rename a column
+	df.withColumnRenamed('old column', 'New column Name').show()
+	
+Spark SQL
+----------
+	Spark.sql it interact with sql queries
+	df.createOrReplaceTempView('people') - registered the sql temp view
+	results = spark.sql("Select * from people")
+	results.show()	
+	 
+	new_results = spark.sql("Select * from people where age = 30")
+	new_results.show()
+	
+Filter out data from dataframe
+-------------------------------
+	from pyspark.sql import SparkSession
+	spark = SparkSession.builer().appName('ops').getOrCreate()
+	df = spark.read.csv('apple_stock.csv', inferschema = True, Header = True)// Inferschema possible in csv not in json, inferschema will read 		 table structure, header means first row in csv are column names.
+		
+	df.printSchema();
+	df.show()
+	df.head(3)[0] //first 3 rows object, taking the first object from the row
+	
+	df methods
+	df.filter("close < 500").show()
+	df.filter("close < 500").select('open').show()
+	df.filter("close < 500").select(['open', 'close']).show()//multiple columns passed as list in []	
+	df.filter(df['close'] <500).show()
+	df.filter(df['close'] <500).select(['Volume']).show()
+	
+	filter based on multiple conditions
+	df.filter(df['close'] < 200 and df['open'] > 200).show()
+		this will throw an error "Cannot convert column into bool: please use & or | symbols so changing will fix
+		& - and
+		| - OR
+		~ - NOT Operator &~
+	df.filter(df['close'] < 200 & df['open'] > 200).show()	
+		Again this will throw p4jerror python for java this error doest real tell what is happen
+		soultion we need distinctly split and pass it in Paranthesis
+	df.filter( (df['close'] < 200) & (df['open'] > 200) ).show()
+	
+	
+	specific row instances
+	df.filter(df['Low'] == 197.16).show() // when we know the data we can filter
+	
+	to play around with data use collect()
+	result = df.filter(df['Low'] == 197.16).show() // when we know the data we can filter
+	show() - just displays
+	We need to store the results 
+	
+	give list of items
+	result[]
+	row = result[0] - first item in the list
+	row.asDict() - converting it to dictonary 
+	
+	row.asDict().['Volume'] - giving the key from dictonary 
+
+
+Groupby and Aggregate Operations
+--------------------------------
+	Allows groupby rows based on columns 	
+	then we can use aggregate function of the data - it combines multiple row to single output
+	
+	from pyspark.sql import SparkSession
+	spark = SparkSession.builder().appName('Agg').getOrCreate()
+	
+	df = spark.read.csv('sales_info.csv', inferschema=True, header=True)
+	df.printSchema()
+	
+	df.groupBy("Company") - we get groupdata object at in memory location
+	df.groupBy('Company').mean().show() - mean get the statistical information mean, sum, count(Aggregate functions)
+		to checkout the functions use link: spark.apache.org/docs/lates/api/python/pyspark.sql.html#module-pyspark.sql.functions
+	 
+	 Agg method
+	 df.agg( {'Sales' : 'sum'}).show() - Dictonary Key as column name and 'Sum' Retrun all the columes , 'Max', 'Min
+	 
+	 or 
+	 
+	 using grouby
+	 group_data = df.groupBy("Company")
+	 group_data.agg({'Sales':'Max'}).show() - Dictonary Key as column name and 'Sum' 
+	
+	
+	import function from spark
+	from pyspark.sql.fucntions import countDisntinct, avg, stddev (hit tab after import)
+	
+	combine using select column
+	
+	df.select(countDistinct('Sales')).show() - returns distinct number of sales value
+	df.select(avg('Sales')).show()
+	df.select(avg('Sales').alias('Average Sales')).show() - Giving column alias names
+	
+	df.select(stddev('Sales')).show() - by default it will retrun ugly column name and large float value
+	
+	we can format this by using 
+	from pysaprk.sql.functions import format_number
+	sales_std = df.select(std_dev('sale').alias('std'))
+	sales_std.show()
+	
+	formatting the display number
+	sales_std.select(format_number('std', 2).alias('std')).show()
+	
+	
+	df.orderBy('sales').show() - goes in Ascending order
+	df.orderBy(df['sales'].desc()).show() - goes in desending value
+	
+	
+Handle Missing Data
+---------------------
+	Datasource may have missing data - Keep missing data using NULL - Drop the missing data - Fill missing data with some other value
+	
+	from pyspark.sql import SparkSession
+	spark = SparkSession.builder().appName('missing value').getOrCreate()
+	
+	df = spark.read.csv('ContainsNull.csv', header=True, inferSchema = True)
+	thresh
+	df.na.drop.show(thresh=2) - drop missing data and we can specify a threshold argument i.e atleast row must of 2 non null values
+	how
+	df.na.drop.show(how='all') - default is set on how='any' if any colum has null, 'all' only drop if all values are null values
+	subset
+	df.na.drop.show(subset=['Sales']).show()  - optional list of column name with null values, pass column names as list, doesnt mater if any column has null value if sales has null will be considered
+	
+	fill missing values
+	first print the schema and understand the schema datatype
+	df.printSchema() 
+		1st column as string
+		2nd column as int
+		3rd column as double
+	df.na.fill('FILL VALUE').show() - spark fill is intelegent enough to fill null vaues with specified text only for String columns
+	df.na.fill(0).show() - spark fill value only to its integer columns
+	df.na.fill('No Name', subset=['Name']).show() - this step is for better understanding
+	
+	Common pratice - fill value with common mean value
+	
+	from pyspark.sql.funcation import mean
+	mean_val = df.select(mean(df['sales'])).collect()
+	mean_val - retruns list row object
+	mean_sales = mean_val[0][0]
+	df.na.fill(mean_sales,['sales']).show()
+	
+	or we can write it in online
+	df.na.fill(df.select(mean(df['sales'])).collect()[0][0], ['sales']).show()
+	
+Dates and TimeStamps
+---------------------
+	from pyspark.sql import SparkSession
+	spark = SparkSession.builder().appName("Dates&TimeStamp").getOrCreate()
+	
+	df = spark.read.csv('appl_stock.csv', header = True, Inferschema = True)
+	df.select(['Date','Opening_Price']).show()
+	
+	from pysprark.sql import (dayofmonth, hour, 
+				  dayofyear, month, 
+				  year, weekofyear,
+				  format_number, date_format)
+	
+	df.select(dayofmonth(df['dates'])).show()
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+		
 
 
 
