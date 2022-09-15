@@ -544,6 +544,87 @@ Dates and TimeStamps
 	
 	df.select(dayofmonth(df['dates'])).show()
 
+Spark Streaming
+----------------
+
+Kafka/Flume/HDFS S3/Kinesis/Twitter => Spark Streaming => HDFS/DB/Dashboards(Sudo dashboards)
+
+Input data stream => Spark Streaming => Batches of input data => Spark Engine => Batches of process data
+
+Using Terminal as live stream 
+process data using notebook
+
+Spark context - it was used before spark 2.0
+Spak context is maily used in spark streaming
+We will be using RDD syntax
+It can be done by connecting to the local stream of data using Terminal through socket connection
+
+
+Create Spark Steaming application and count word
+================================================
+Steps to create Streaming will be:
+	Create Spark Context - smilar to spark session
+	Create StreamingContext
+	Create a Socket Text Stream - connecting a socket eg: jypter notebook or ipyfile through terminal
+	Read in the lines as a "DStream"
+	
+Working with data
+	Take input line into list words
+	Map each word to a tuple eg:(word, 1)
+	Then group reduce the tuple by the word(key) then sum up the second argument(number one)
+	
+	Note: RDD syntax rely on lambda expressions
+	
+
+First :
+	import findspark
+	findspark.init('/home/karthick/spark-3.3.0-bin-hadoop3')
+	from pyspark import SparkContext
+	from pyspark.streaming import StreamingContext
+	sc = SparkContext('local[2]','networkwordcount')
+	ssc = StreamingContext(sc,1)	
+	#this going to conect a DStream or DataStream connect to a host name  and local port
+	lines = ssc.socketTextStream('localhost', 9999)
+	words = lines.flatMap(lambda line: line.split(' '))
+	pairs = words.map(lambda word: (word,1))	
+	word_counts = pairs.reduceByKey(lambda num1, num2: num1+num2)
+	#pprint is pretty print
+	word_counts.pprint()
+	ssc.start() - before starting this go to CLI
+
+	Type the below 
+	nc -lk 9999 
+	now type in CLI - things will appear in the notebook
+
+
+Object Oriented Programing
+--------------------------
+
+Class NameOfClass(): #Object are also called as class, First letter capital, Camel case
+
+	def__init__(self, par1, par2): create as instance for the object
+		self.parm
+		self.parm2
+		
+	def some_mmethod(self):
+		#functions
+		print(self.param1)
+		
+Class is blue print, 
+
+	class Dog():
+		
+		def __init__(self, mybreed) #creating __init__ means create instance for the object and self keyword is used to point the variable for that, Constrctor for class, self 
+		
+		self.breed = mybreed
+		pass - doesnt do anything just passes
+		my_dog = Dog()
+		my_sample = Sample()
+		type(my_sample) - __Main__ .Sample
+		
+	
+
+
 	
 	
 	
