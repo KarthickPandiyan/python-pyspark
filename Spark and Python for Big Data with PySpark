@@ -327,6 +327,332 @@ Pop something inside the list or find
 	
 	
 	
+FUNCTIONS
+---------
+	def name_of_function(): #all lower case words, underscore between the words
+		'''
+		DocString
+		'''
+	
+	Parameters in function
+	----------------------
+	def name_of_function(name):	
+	
+		print("hello",+name)
+		
+	Return in function
+	------------------
+	def name_of_function(name1, name2):
+		return num1+num2
+		
+		retrun all to "save the value" to variable but "print will not"
+		
+	Calling function with or without parenthisis
+	--------------------------------------------
+		say_hello()
+		say_hello -  will say it is a function
+		
+		def say_hello_buddy(name):
+		    print(f' hello  {name}')		
+		say_hello_buddy('Karthick')
+		
+		Default function value
+		-----------------------
+
+		def say_hello_buddy(name = 'Default'):
+		    print(f' hello  {name}')		
+		say_hello_buddy('Karthick')
+		
+		giving parameter while we call function will no cause error instead it will retrun default value
+		 
+
+		def add_num_return(num1,num2):
+		    #print (num1+num2)
+    			return num1+num2
+    			result = add_num_return(5,5)
+			result
+		
+		def say_hello_buddy(name):
+    			print(f' hello  {name}')
+    		
+    		def even_in_list(given_list):
+    		for every in given_list:
+        		if every % 2 == 0:
+            			return True
+        		else:
+            			pass
+            		#return False #it is wrong it will check the first num and come out
+            		#solution it should be outside for loop
+    		return False		
+    		
+    		#retrun all even numbers in llist
+		def even_in_list(given_list):
+    		#place holder for retruning something or variable, if dont have to find it is as argument
+    		even_number = []
+    
+    		for every in given_list:
+        		if every % 2 == 0:
+            			even_number.append(every)
+        		else:
+            			pass
+            		#return False #it is wrong declaration inside a loop it will check the first num and come out
+            		#solution it should be outside for loop
+    		return even_number
+    		
+    		
+Function that upacking TUPLE
+-----------------------------
+    	
+    	upacking tuple using function
+    	
+    	stock_prices = [("Apple", 200),("Google", 300),("MSFT", 400)]
+    	for price in stock_prices:
+    		print(price)
+    	for ticker, price in stock_prices:
+    		print(price + (price*0.1))	
+    	
+    	Now how we can do this using function find employee who works more hours in the month
+    	work_hours =[('abby', 100),('Bill', 400),('Cassie', 800)]
+    	
+    	def employ_check(work_hours):
+    	
+    	
+    	current_max = hours
+  	employee_month = employee
+    	
+    	for employee, hours in work_hours:
+    		if hours > current_max:
+    		 	
+    			current_max = hours
+    			employee_month = employee
+    		else:
+    			pass
+    	return (employ_month, current_max)			
+    			
+    			
+    	result = employe_check(work_hours)
+    	
+    	
+Interaction between functions
+-----------------------------
+	mimic carnival guessing game, three cups with a red ball hidden and guess where it is 
+	
+	it will done with python list
+	
+	
+		
+	from random import shuffle
+	shuffle(mylist)
+		# this will shuffle the list
+		
+	
+	#tumbler 
+	mylist = ['','0','']
+	
+	def shuffle_list(mylist):
+		shuffle(mylist)
+		return mylist
+		
+	result = shuffle_list(mylist)	
+	
+	def player_guess():
+	
+		guess = ''
+		
+		while guess not in ['0','1','2']
+			guess =  Input('Guess from the given position 0 or 1 or 2:')
+	
+		return int(guess) #note why retrun has int(guess) and why in while loop we have list in string because input will always have 
+			receive it as string
+			     			
+	def check_guess(result, guess)
+		if result[guess] = 'O':		
+			print('Correct')
+		else:
+			print('wrong')
+			print(result)
+			
+In program function will be called at top and logic will be written at the bottom
+
+#Initiate list
+mylist = ['','0','']
+
+#Shuffle the list
+shuffle = shuffle_list(mylist)
+
+#Take player Guess
+guess = player_guess()
+
+#Check the guess
+check = check_guess(shuffle, guess)
+
+
+args and kwargs i.e *args and **kwargs
+--------------------------------------
+
+*args - holds values as tuple 
+**kwargs - Holds values as dictonary
+
+when we keep given arguments more than the given value, then it will be the type error in order to over come this it was introduced
+
+def myfunc(*args)
+	sum(args) * 0.05
+	
+myfunc(10,30,50,60,70,80) # prints sum of given value and 5% of it 
+myfunc()
+
+def myfunc(**kwargs):
+	if 'fruit' in kwargs:
+		print('i want to have {}'.format(kwargs['fruit']))
+	else:
+		print('i dont not find fruit')
+myfunc(fruit = 'apple')	
+    			
+
+def myfunc(*args, **kawargs):    			
+	print('I would like to have {} {}'. format(args[0],kwargs['food']))
+	
+myfunc(10,30,50 , fruit = 'apple', veggie = 'Carrot', food = 'egg')
+
+if the given args and kwars are in order then parameter has to be in same order
+
+
+Function Excercise with Logics
+------------------------------
+
+For loop can have break and else statement
+
+Syntax: For x in range(3,x,2):
+		conditions
+		break
+	else:
+	    primes.append(x)
+	    x +=2 
+    		
+To improve math and programing excercise check "euler project" website
+
+Lambda Function
+----------------
+	map(function, Iteration):
+		We dont have give braces in function parameter as map executes it by default
+		
+	Example:
+		nums = [1,2,3,4,5,6]
+		
+		def find_even(nums):
+			return nums%2 == 0
+			
+		map(find_even, given_list) if we run the map function it will return a memory value like "map at 0*125591654132"
+						to see the output pass the map function to a iteration or list
+		
+		for each in map(find_even, given_list):
+			print(each)
+
+		list(map(find_even, given_list))		
+	
+	filter() will retrun boolean
+		
+		def check_even(num):
+			return num%2 == 0
+	
+	Example:
+		filter(check_even, nums) - it applies filter on the list of number parameter and return only the filtered values
+						it will return "filter at 0*23264520", so pass it iterator or list
+						
+		for item in filter(check_even, nums)
+		
+		or 
+		
+		list(filter(check_even, nums))
+						
+	lamdba() anonymous function, we dont have to give name 
+	
+	how to change normal function to lambda expression
+	
+	def square(nums):
+		retrun num ** 2
+		
+	example: 
+		 lambda(num: num **2)
+
+		using conjunction with map and filter, since lambda is anonymous function it passed as function argument to map and filter and susequently as list
+			
+	example:
+		list(map(lambda(num: num **2), nums))
+		
+		list(filter(lambda(num: num **2), nums)))
+		
+		reverse the names
+		list(lambda(x:x[::-1]), names)
+		
+		complex functions cannot be used as lambda expression, use it as readable function
+		 
+		
+Nested Statement and scope
+--------------------------
+
+Variable names - Stored in namespace, it also have scope, determine visiblity 
+
+X= 25
+
+def printer():
+	x = 50 
+	return x
+
+print(x) it will be 25 
+print(printer) it will be 50
+
+How python recognise the variable?
+
+LEGB Rule - order python will look for variables
+
+L - Local variable inside the function
+E - Enclosing functions locals 
+G - Global(module)
+B - Built-in 
+
+			   		
+x = 50
+
+def func(x):
+	global x # this helps to override the varible outside variable, it better to avoid using this keyword , do the reassignment 
+			We may accidently override when we have multiple functions
+	print(f'x is {x}')
+	
+	#local reassignment
+	x= 200          # has scope only to this loop
+	print(f'x is {x} local')
+	
+    			
+We can declare global if we want to overite it 
+    			
+    			
+
+
+Accepting user input
+--------------------
+keyword input("Please enter a value:")
+	input("Please Enter A value:")
+#it displays a value as i.e return string
+Please Enter A value:3
+
+	result = input("Please Enter A value:")  			
+	result
+#input value stored in a variable and it will retruned as string
+
+#We can change the input return type     			
+#convert the result value to integer
+	result_int = int(result)
+#result_float
+
+	type(result_int)
+	int
+
+    			
+    			
+	
+	
+	
 Spark Dataframe - Pandas Excel R Spark 2.0 higher
 -------------------------------------------------
 	Hold data in column and row
