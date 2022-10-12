@@ -76,6 +76,10 @@ Use findspark library to establish the spark connection instead of going to the 
             >>> quit()
 
 Now let do the same step from jupyter notebook 
+
+To write notes in Jupyter notebook 
+	"place the cursor on the box and press Esc then m then Enter so that you gain focus again and can start typing"
+
           1. jupyter notebook - from home directory
           2. paste the link for from terminal to browser
           3. type import pyspark
