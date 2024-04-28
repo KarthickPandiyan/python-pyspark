@@ -58,20 +58,20 @@ Local Installation VirtualBox Part
            
 Use findspark library to establish the spark connection instead of going to the directory
            37 pip3 install findspark
-           karthick@karthick-VirtualBox:~$ cd spark-3.3.0-bin-hadoop3/
-            karthick@karthick-VirtualBox:~/spark-3.3.0-bin-hadoop3$ pwd
-            /home/karthick/spark-3.3.0-bin-hadoop3
-            karthick@karthick-VirtualBox:~/spark-3.3.0-bin-hadoop3$ cd 
-            karthick@karthick-VirtualBox:~$ python3
+           user@user-VirtualBox:~$ cd spark-3.3.0-bin-hadoop3/
+            user@user-VirtualBox:~/spark-3.3.0-bin-hadoop3$ pwd
+            /home/user/spark-3.3.0-bin-hadoop3
+            user@user-VirtualBox:~/spark-3.3.0-bin-hadoop3$ cd 
+            user@user-VirtualBox:~$ python3
             Python 3.10.4 (main, Jun 29 2022, 12:14:53) [GCC 11.2.0] on linux
             Type "help", "copyright", "credits" or "license" for more information.
             >>> import findspark
-            >>> findspark.init('/home/karthick/spark-3.3.0-bin-hadoop3
+            >>> findspark.init('/home/user/spark-3.3.0-bin-hadoop3
               File "<stdin>", line 1
-                findspark.init('/home/karthick/spark-3.3.0-bin-hadoop3
+                findspark.init('/home/user/spark-3.3.0-bin-hadoop3
                                ^
             SyntaxError: unterminated string literal (detected at line 1)
-            >>> findspark.init('/home/karthick/spark-3.3.0-bin-hadoop3')
+            >>> findspark.init('/home/user/spark-3.3.0-bin-hadoop3')
             >>> import pyspark
             >>> quit()
 
@@ -89,7 +89,7 @@ To write notes in Jupyter notebook
             ----> 1 import pyspark
             ModuleNotFoundError: No module named 'pyspark'
           4. type "import findspark" library
-          5. type the commond findspark.init(''/home/karthick/spark-3.3.0-bin-hadoop3')
+          5. type the commond findspark.init(''/home/user/spark-3.3.0-bin-hadoop3')
           
  Jose portilla - Python crash course
  Resource - https://docs.google.com/presentation/d/1CuqvSGMqdMTT1dTblX5enEqZNLS8d0fHwZImQ3zzbpQ/edit?usp=sharing
@@ -263,7 +263,7 @@ Function and special methods used on python objects
 		def function_name(name):
 			print("hello", +name)
 			
-		function_name(Karthick) -> it concadinates the parameter with provided in print statment
+		function_name(user) -> it concadinates the parameter with provided in print statment
 	
 		to add default parameter to a function
 		def function_name(name='No_Name'):
@@ -354,14 +354,14 @@ FUNCTIONS
 		
 		def say_hello_buddy(name):
 		    print(f' hello  {name}')		
-		say_hello_buddy('Karthick')
+		say_hello_buddy('user')
 		
 		Default function value
 		-----------------------
 
 		def say_hello_buddy(name = 'Default'):
 		    print(f' hello  {name}')		
-		say_hello_buddy('Karthick')
+		say_hello_buddy('user')
 		
 		giving parameter while we call function will no cause error instead it will retrun default value
 		 
@@ -911,7 +911,7 @@ Working with data
 
 First :
 	import findspark
-	findspark.init('/home/karthick/spark-3.3.0-bin-hadoop3')
+	findspark.init('/home/user/spark-3.3.0-bin-hadoop3')
 	from pyspark import SparkContext
 	from pyspark.streaming import StreamingContext
 	sc = SparkContext('local[2]','networkwordcount')
@@ -1000,4 +1000,3 @@ Class is blue print,
   
   
   
-
