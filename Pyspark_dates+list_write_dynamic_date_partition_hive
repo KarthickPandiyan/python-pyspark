@@ -1,0 +1,22 @@
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, when, lit, concat
+
+# Initialize Spark session
+spark = SparkSession.builder.appName("PartitionColumnExample").getOrCreate()
+
+# Sample DataFrame
+data = [("2024-10-01",), ("2024-10-02",), ("2024-10-03",)]
+columns = ["date_column"]
+
+df = spark.createDataFrame(data, columns)
+
+# List of target partition dates
+target_dates = ["2024-10-01", "2024-10-03"]
+
+# Create a new column based on the matching dates
+df = df.withColumn(
+    "partition_column",
+    when(col("date_column").isin(target_dates), concat(lit("target partition_"), col("date_column")))
+    .otherwise(lit(None))
+)
+df.show()
